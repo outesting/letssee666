@@ -1,0 +1,8 @@
+site_name: letssee666
+site_description: asdasd
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: letssee666-app
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: letssee666
+  project: letssee666-project
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: deploy/resources
+    repoURL: https://github.com/tanuudemo/letssee666.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - Replace=true
